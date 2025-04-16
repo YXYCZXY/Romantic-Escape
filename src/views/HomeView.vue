@@ -55,6 +55,16 @@ export default {
         let image2 = await map.loadImage(url2);
         map.addImage('eat-jp', image2.data);
 
+        
+        let url3 = require('../assets/icon-ashin.png')
+        let image3 = await map.loadImage(url3);
+        map.addImage('icon-ashin', image3.data);
+
+        
+        let url4 = require('../assets/icon-moster.png')
+        let image4 = await map.loadImage(url4);
+        map.addImage('icon-moster', image4.data);
+
 
 
         this.addLin(jd.line)
@@ -105,8 +115,18 @@ export default {
         source: 'sightseeing-points',
         filter: ['==', '$type', 'Point'],
         layout: {
-          'icon-image': 'point-jp',             // 确保图标存在
-          'icon-size': 1.0,
+          'icon-image': [
+            'case',
+            ['==', ['get', 'type'], 'monster'], 'icon-moster',
+            ['==', ['get', 'type'], 'ashin'], 'icon-ashin',
+            'point-jp' // 默认图标
+          ],           // 确保图标存在
+          'icon-size': [
+            'case',
+            ['==', ['get', 'type'], 'monster'], 0.2,
+            ['==', ['get', 'type'], 'ashin'], 0.5,
+            1.0 // 默认图标
+          ],    
           'icon-allow-overlap': true,           // 图标允许重叠
           'icon-ignore-placement': true,        // 忽略图标位置冲突
 
@@ -126,6 +146,27 @@ export default {
         }
       });
 
+      map.on('click', 'sightseeing-points-layer', (e) => {
+        if (e.features && e.features.length > 0) {
+          const properties = e.features[0].properties;
+          const name = properties.name;
+          const url = properties.url;
+          // 复制到剪贴板
+          navigator.clipboard.writeText(name).then(() => {
+            this.$message({
+              message: '已复制',
+              type: 'success'
+            });
+          }).catch(err => {
+            console.error('复制失败：', err);
+          });
+          // 如果有 URL，就打开新窗口跳转
+          if (url) {
+            window.open(url, '_blank');
+          }
+        }
+      });
+
 
     },
     addPoint(line) {
@@ -141,8 +182,18 @@ export default {
         source: 'eat-points',
 
         layout: {
-          'icon-image': 'eat-jp',             // 确保图标存在
-          'icon-size': 1.0,
+          'icon-image': [
+            'case',
+            ['==', ['get', 'type'], 'monster'], 'icon-moster',
+            ['==', ['get', 'type'], 'ashin'], 'icon-ashin',
+            'eat-jp' // 默认图标
+          ],           // 确保图标存在
+          'icon-size': [
+            'case',
+            ['==', ['get', 'type'], 'monster'], 0.2,
+            ['==', ['get', 'type'], 'ashin'], 0.5,
+            1.0 // 默认图标
+          ],    
           // 'icon-allow-overlap': true,           // 图标允许重叠
           // 'icon-ignore-placement': true,        // 忽略图标位置冲突
 
@@ -162,7 +213,6 @@ export default {
         }
       });
       map.on('click', 'eat-points-layer', (e) => {
-        debugger
         if (e.features && e.features.length > 0) {
           const properties = e.features[0].properties;
           const name = properties.name;
