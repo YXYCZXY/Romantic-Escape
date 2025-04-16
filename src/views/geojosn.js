@@ -814,6 +814,22 @@ export const jd = {
       {
         type: "Feature",
         properties: {
+          name: "鸭川 (四条大桥)",
+          order: 17,
+          type: "ashin",
+          msg: "漫步",
+          ticket: "否",
+          img:require('../assets/鸭川.png'),
+          url: "https://www.google.com.hk/maps/place/Shij%C5%8D+Bridge/@35.0038437,135.7666622,17z/data=!3m1!4b1!4m6!3m5!1s0x60010900738f5ca9:0x50b41dc5544a6242!8m2!3d35.0038394!4d135.7715331!16s%2Fg%2F122dlg13?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D",
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [135.77114550196032, 35.003815283095534],
+        },
+      },
+      {
+        type: "Feature",
+        properties: {
           name: "先斗町公园 (荡秋千)",
           order: 17,
           type: "ashin",

@@ -14,6 +14,8 @@ import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import { jd } from './geojosn';
+import Popup from './Popup.vue'; //引入弹框组件
+import Vue from 'vue';
 export default {
   name: '',
   mixins: [],
@@ -55,12 +57,12 @@ export default {
         let image2 = await map.loadImage(url2);
         map.addImage('eat-jp', image2.data);
 
-        
+
         let url3 = require('../assets/icon-ashin.png')
         let image3 = await map.loadImage(url3);
         map.addImage('icon-ashin', image3.data);
 
-        
+
         let url4 = require('../assets/icon-moster.png')
         let image4 = await map.loadImage(url4);
         map.addImage('icon-moster', image4.data);
@@ -115,18 +117,8 @@ export default {
         source: 'sightseeing-points',
         filter: ['==', '$type', 'Point'],
         layout: {
-          'icon-image': [
-            'case',
-            ['==', ['get', 'type'], 'monster'], 'icon-moster',
-            ['==', ['get', 'type'], 'ashin'], 'icon-ashin',
-            'point-jp' // 默认图标
-          ],           // 确保图标存在
-          'icon-size': [
-            'case',
-            ['==', ['get', 'type'], 'monster'], 0.2,
-            ['==', ['get', 'type'], 'ashin'], 0.5,
-            1.0 // 默认图标
-          ],    
+          'icon-image': 'point-jp',           // 确保图标存在
+          'icon-size': 1.0,
           'icon-allow-overlap': true,           // 图标允许重叠
           'icon-ignore-placement': true,        // 忽略图标位置冲突
 
@@ -193,7 +185,7 @@ export default {
             ['==', ['get', 'type'], 'monster'], 0.2,
             ['==', ['get', 'type'], 'ashin'], 0.5,
             1.0 // 默认图标
-          ],    
+          ],
           // 'icon-allow-overlap': true,           // 图标允许重叠
           // 'icon-ignore-placement': true,        // 忽略图标位置冲突
 
@@ -212,7 +204,7 @@ export default {
           'text-halo-width': 1.5
         }
       });
-      map.on('click', 'eat-points-layer', (e) => {
+      map.on('dbclick', 'eat-points-layer', (e) => {
         if (e.features && e.features.length > 0) {
           const properties = e.features[0].properties;
           const name = properties.name;
@@ -231,6 +223,26 @@ export default {
             window.open(url, '_blank');
           }
         }
+      });
+
+      let mapboxpopup = new maplibregl.Popup({ offset: [0, -25] })
+      map.on('click', 'eat-points-layer', (e) => {
+        let content = e.features[0].properties;
+
+        if (!content.img) return; // 如果没有图片则不展示 popup
+        const p = Vue.extend(Popup);
+        let vm = new p({
+          propsData: {
+            objes: content,
+          }, //传参
+        });
+        vm.$mount(); //挂载
+
+        mapboxpopup
+          .setLngLat(e.lngLat)
+          .setMaxWidth('300px') //设置弹窗最大宽度
+          .setDOMContent(vm.$el) //插入节点
+          .addTo(map);
       });
     }
   },
@@ -254,7 +266,7 @@ export default {
   position: absolute;
   top: -60px;
   right: -100px;
-  z-index: 1111111;
+  z-index: 10;
   transform: scale(0.3)
 }
 
