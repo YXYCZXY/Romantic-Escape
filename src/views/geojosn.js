@@ -554,6 +554,7 @@ export const jd = {
         type: "Feature",
         properties: {
           name: "Tonkatsu Ganko Nara (日式炸猪排店)",
+          url:'https://www.google.com.hk/maps/place/Tonkatsu+Ganko+Nara/@34.6836386,135.8286673,17z/data=!3m1!4b1!4m6!3m5!1s0x600139878d9799a1:0x2fb37b0f4a17a2e1!8m2!3d34.6836386!4d135.8286673!16s%2Fg%2F1thw21jk?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D',
           order: 5,
           msg: "吃",
           time: "11:00–21:30",

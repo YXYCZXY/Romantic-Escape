@@ -162,9 +162,11 @@ export default {
         }
       });
       map.on('click', 'eat-points-layer', (e) => {
+        debugger
         if (e.features && e.features.length > 0) {
-          const name = e.features[0].properties.name;
-
+          const properties = e.features[0].properties;
+          const name = properties.name;
+          const url = properties.url;
           // 复制到剪贴板
           navigator.clipboard.writeText(name).then(() => {
             this.$message({
@@ -174,6 +176,10 @@ export default {
           }).catch(err => {
             console.error('复制失败：', err);
           });
+          // 如果有 URL，就打开新窗口跳转
+          if (url) {
+            window.open(url, '_blank');
+          }
         }
       });
     }
