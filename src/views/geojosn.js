@@ -545,6 +545,7 @@ export const jd = {
           msg: "吃/怪兽打卡",
           type: "monster",
           time: "12:00–15:00 17:00–22:00",
+          img:require('../assets/12.png'),
           url: "https://www.google.com.hk/maps/place/Inase+Sushi/@34.7049014,135.4881295,17z/data=!3m2!4b1!5s0x6000e688863f7021:0x4ceb5b05fe5204c8!4m6!3m5!1s0x6000e688ec78d971:0xd59e6667b1f6ed0d!8m2!3d34.704897!4d135.4907044!16s%2Fg%2F1w6_nqb7?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D",
         },
         geometry: {

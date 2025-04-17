@@ -204,7 +204,27 @@ export default {
           'text-halo-width': 1.5
         }
       });
-      map.on('dblclick', 'eat-points-layer', (e) => {
+
+      let mapboxpopup = new maplibregl.Popup({ offset: [0, -25] })
+      map.on('click', 'eat-points-layer', (e) => {
+        let content = e.features[0].properties;
+
+        if (content.img) {
+          const p = Vue.extend(Popup);
+          let vm = new p({
+            propsData: {
+              objes: content,
+            }, //传参
+          });
+          vm.$mount(); //挂载
+
+          mapboxpopup
+            .setLngLat(e.lngLat)
+            .setDOMContent(vm.$el) //插入节点
+            .addTo(map);
+        }
+
+
         if (e.features && e.features.length > 0) {
           const properties = e.features[0].properties;
           const name = properties.name;
@@ -223,25 +243,6 @@ export default {
             window.open(url, '_blank');
           }
         }
-      });
-
-      let mapboxpopup = new maplibregl.Popup({ offset: [0, -25] })
-      map.on('click', 'eat-points-layer', (e) => {
-        let content = e.features[0].properties;
-
-        if (!content.img) return; // 如果没有图片则不展示 popup
-        const p = Vue.extend(Popup);
-        let vm = new p({
-          propsData: {
-            objes: content,
-          }, //传参
-        });
-        vm.$mount(); //挂载
-
-        mapboxpopup
-          .setLngLat(e.lngLat)
-          .setDOMContent(vm.$el) //插入节点
-          .addTo(map);
       });
     }
   },
