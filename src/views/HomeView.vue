@@ -71,7 +71,12 @@ export default {
 
         this.addLin(jd.line)
         this.addPoint(jd.point)
+        map.resize();
       })
+
+      window.addEventListener('resize', () => {
+        map.resize();
+      });
 
     },
     addLin(line) {
