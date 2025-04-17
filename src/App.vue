@@ -19,7 +19,9 @@ html,body,#app{
   margin: 0;
 }
 
-
+.maplibregl-popup{
+  max-width: unset!important;
+}
 
 nav a {
   font-weight: bold;

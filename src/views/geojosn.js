@@ -654,21 +654,6 @@ export const jd = {
       {
         type: "Feature",
         properties: {
-          name: "我楽苦多 (阿信打卡点)",
-          order: 9,
-          type: "ashin",
-          msg: "吃",
-          time: "11:00–18:00",
-          url: "https://www.google.com.hk/maps/place/%E6%97%A5%E6%9C%AC%E3%80%92605-0826+Kyoto,+Higashiyama+Ward,+Masuyach%C5%8D,+350-21+%E6%88%91%E6%A5%BD%E8%8B%A6%E5%A4%9A/@34.9981841,135.7760925,17z/data=!3m1!4b1!4m6!3m5!1s0x600108d018e39d27:0xe26276cd5cb45cb6!8m2!3d34.9981798!4d135.7809634!16s%2Fg%2F11g6yt0ns5?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D",
-        },
-        geometry: {
-          type: "Point",
-          coordinates: [135.78140896173875, 34.998257887884925],
-        },
-      },
-      {
-        type: "Feature",
-        properties: {
           name: "GION GOZU 四条店 (布丁)",
           order: 10,
           msg: "吃",
@@ -758,6 +743,7 @@ export const jd = {
           type: "ashin",
           msg: "吃",
           time: "11:00–18:00",
+          img:require('../assets/10.png'),
           url: "https://www.google.com.hk/maps/place/%E6%97%A5%E6%9C%AC%E3%80%92605-0826+Kyoto,+Higashiyama+Ward,+Masuyach%C5%8D,+350-21+%E6%88%91%E6%A5%BD%E8%8B%A6%E5%A4%9A/@34.9981841,135.7760925,17z/data=!3m1!4b1!4m6!3m5!1s0x600108d018e39d27:0xe26276cd5cb45cb6!8m2!3d34.9981798!4d135.7809634!16s%2Fg%2F11g6yt0ns5?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D",
         },
         geometry: {
@@ -771,6 +757,7 @@ export const jd = {
           name: "清水寺 (清水舞台)",
           order: 17,
           type: "ashin",
+          img:require('../assets/5.png'),
           msg: "漫步",
           ticket: "否",
           url: "https://www.google.com.hk/maps/place/The+Stage+of+Kiyomizu/@34.9947092,135.784744,21z/data=!4m6!3m5!1s0x600108d3814b64dd:0xb97aec38badd1523!8m2!3d34.9947118!4d135.7850324!16s%2Fg%2F11g8gyxnr0?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D",
@@ -789,6 +776,7 @@ export const jd = {
           type: "ashin",
           msg: "漫步",
           ticket: "否",
+          img:require('../assets/5.png'),
           url: "https://www.google.com.hk/maps/place/Kiyomizu-Dera+Otowanotaki+Falls/@34.9944305,135.782674,17z/data=!3m1!4b1!4m6!3m5!1s0x600108d37fde0147:0xd48a78df4bf4c789!8m2!3d34.9944261!4d135.7852489!16s%2Fg%2F1twyzfsn?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D",
         },
         geometry: {
@@ -804,6 +792,7 @@ export const jd = {
           type: "ashin",
           msg: "漫步",
           ticket: "否",
+          img:require('../assets/先斗盯.png'),
           url: "https://www.google.com.hk/maps/place/Kashiwayacho,+%E4%B8%AD%E4%BA%AC%E5%8C%BA%E4%BA%AC%E9%83%BD%E5%B8%82%E4%BA%AC%E9%83%BD%E5%BA%9C+604-8014%E6%97%A5%E6%9C%AC/@35.0039174,135.7708199,19.33z/data=!4m6!3m5!1s0x600108eaada61dd3:0x20c94ccc31f4168a!8m2!3d35.0041507!4d135.7710538!16s%2Fg%2F1pxyz4rgt?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D",
         },
         geometry: {
@@ -835,6 +824,7 @@ export const jd = {
           type: "ashin",
           msg: "漫步",
           ticket: "否",
+          img:require('../assets/荡秋千.png'),
           url: "https://www.google.com.hk/maps/place/Pontocho+Park/@35.0064321,135.7686413,17z/data=!3m1!4b1!4m6!3m5!1s0x600108eb2db70209:0x1061b5eff19324dc!8m2!3d35.0064277!4d135.7712162!16s%2Fg%2F11cmrtj057?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D",
         },
         geometry: {
@@ -842,6 +832,42 @@ export const jd = {
           coordinates: [135.77117328751402, 35.0065418888373],
         },
       },
+
+      {
+        type: "Feature",
+        properties: {
+          name: "东大寺",
+          type: "ashin",
+          order: 2,
+          msg: "参拜",
+          img:require('../assets/4.png'),
+          url: "https://www.google.com.hk/maps/place/%E4%B8%9C%E5%A4%A7%E5%AF%BA/@34.6889894,135.8349449,17z/data=!3m1!4b1!4m6!3m5!1s0x600139907a0876dd:0xf890ac3f9dd53c8f!8m2!3d34.6889851!4d135.8398158!16zL20vMDJoNnR3?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D",
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [135.83977288524486,34.687825029804614],
+        },
+      },
+
+      {
+        type: "Feature",
+        properties: {
+          name: "金阁寺(抹茶冰淇淋)",
+          type: "ashin",
+          order: 15,
+          msg: "参观",
+          img:require('../assets/41.png'),
+          ticket: "是",
+          url: "https://www.google.com.hk/maps/place/%E9%B9%BF%E8%8B%91%E5%AF%BA/@35.039444,135.7262731,17z/data=!4m10!1m2!2m1!1z6YeR6ZiB5a-6!3m6!1s0x6001a820c0eb46bd:0xee4272b1c22645f!8m2!3d35.03937!4d135.7292431!15sCgnph5HpmIHlr7paDSIL6YeRIOmYgSDlr7qSAQ9idWRkaGlzdF90ZW1wbGXgAQA!16zL20vMDFrbjR3?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoJLDEwMjExNjM5SAFQAw%3D%3D",
+        },
+        geometry: {
+          type: "Point",
+          coordinates: [135.7315463093377,35.0392526396976],
+        },
+      },
+
+
+    
     ],
   },
 };

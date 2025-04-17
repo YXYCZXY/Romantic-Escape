@@ -204,7 +204,7 @@ export default {
           'text-halo-width': 1.5
         }
       });
-      map.on('dbclick', 'eat-points-layer', (e) => {
+      map.on('dblclick', 'eat-points-layer', (e) => {
         if (e.features && e.features.length > 0) {
           const properties = e.features[0].properties;
           const name = properties.name;
@@ -240,7 +240,6 @@ export default {
 
         mapboxpopup
           .setLngLat(e.lngLat)
-          .setMaxWidth('300px') //设置弹窗最大宽度
           .setDOMContent(vm.$el) //插入节点
           .addTo(map);
       });
@@ -274,7 +273,7 @@ export default {
   position: absolute;
   top: 10px;
   left: 10px;
-  z-index: 1111111;
+  z-index: 10;
 }
 
 #map {
