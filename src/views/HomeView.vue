@@ -42,11 +42,6 @@ export default {
         center: [135.45814476620478, 34.685666338145985], // starting position [lng, lat]
         zoom: 11 // starting zoom
       });
-
-
-      map.addControl(new MapboxLanguage({
-        defaultLanguage: 'zh-Hans'
-      }));
       this.map = map
       map.on('load', async () => {
         let url = require('../assets/point.png')
