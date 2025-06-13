@@ -4,6 +4,25 @@
   </div>
 </template>
 
+<script>
+import Clarity from '@microsoft/clarity';
+export default {
+  mixins: [],
+  components: {
+
+  },
+  props: {},
+  data() {
+    return {
+
+    }
+  },
+  computed: {},
+  mounted() {
+    Clarity.init('rytq6xvtxh');
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -31,4 +50,4 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
-</style>
+</styl>

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@mapbox/mapbox-gl-language": "^1.0.1",
+    "@microsoft/clarity": "^1.0.0",
     "core-js": "^3.8.3",
     "element-ui": "^2.15.14",
     "mapbox-gl": "^3.11.0",
